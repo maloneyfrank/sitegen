@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "sitegen"
+version = "0.1.0"
+description = ""
+authors = ["Franklin Maloney <franklin.maloney@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dithering = "^0.1.27"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
