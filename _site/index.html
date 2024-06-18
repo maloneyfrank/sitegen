@@ -56,19 +56,18 @@
     <main class="home article-list">
         
         <section class="grid" id="home-listing">
-            <div class="cover favorite-things">
-    <a href="{{ link }}"><div class="text">
-        <h2 class="entry-title">Hi, my name is Franklin.</h2>
-        <p class="index-summary">
-            Take a look around - this website serves as an archive of things I'm working on, things I like, and whatever else I want to put on here. Click into this entry to learn more about me.
-        </p>
-        <time class="published"> June 2024</time>
-    </div>
-    
-    <div class="image">
-        <div class="featured-img" style="background-image: url('assets/dithers/about_dithered.png');"></div>
-    </div>
-    
+            <div class="cover {{ category }}">    
+    <a href="{{ link }}">
+        <div class="text">
+            <h2 class="entry-title">Hi, my name is Franklin.</h2>
+            <p class="index-summary">
+                Take a look around - this website serves as an archive of things I'm working on, things I like, and whatever else I want to put on here. Click into this entry to learn more about me.
+            </p>
+            <time class="published"> June 2024</time>
+        </div>
+        <div class="image">
+            <div class="featured-img" style="background-image: url('assets/dithers/about_dithered.png');"></div>
+        </div>
     </a>
 </div>
 <!-- Basic layout for home-page article listing. -->
@@ -85,7 +84,7 @@
     <a href="#">
         <div class="featured-img" style="background-image: url('assets/dithers/agroforestry_dithered.png');"></div>
         <h3 class="entry-title">Pretty Agroforestree Database.</h3>
-        <p class="index-summary"> A re-design of the Agroforestree Database to be more streamlined and bring all information together. Uses python scraping and custom site generator that built this site!</p>
+        <p class="index-summary"> A re-design of the Agroforestree Database to be more streamlined and bring all information together. Uses scraping and the same custom site generator that built this site to deliver a low-tech, easy to read version of the database!</p>
         <time class="published">June 2024</time>
     </a>
 </div>
@@ -113,6 +112,15 @@
         <div class="featured-img" style="background-image: url('assets/dithers/agroforestry_dithered.png');"></div>
         <h3 class="entry-title">Pretty Agroforestree Database.</h3>
         <p class="index-summary"> A re-design of the Agroforestree Database to be more streamlined and bring all information together. Uses python scraping and custom site generator that built this site!</p>
+        <time class="published">June 2024</time>
+    </a>
+</div>
+<!-- Basic layout for home-page article listing. -->
+<div class="article physical-things">
+    <a href="#">
+        <div class="featured-img" style="background-image: url('assets/dithers/garden_dithered.png');"></div>
+        <h3 class="entry-title">Experiments in Permaculture</h3>
+        <p class="index-summary"> Lessons from my study of permaculture for the past 5 years and implementing new systems on my land each season.</p>
         <time class="published">June 2024</time>
     </a>
 </div>

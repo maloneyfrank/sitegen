@@ -391,6 +391,10 @@ time {
   border-bottom: none;
 }
 
+.cover a .image {
+  grid-column: 2/-1;
+}
+
 @media only screen and (max-width: 980px) {
   .cover a .text,
   .cover a .image {
@@ -402,7 +406,7 @@ time {
   }
 }
 .cover .featured-img {
-  height: 500px;
+  height: 400px;
   overflow: hidden;
   background-size: cover;
 }
@@ -413,7 +417,7 @@ time {
 .featured-img {
   margin: var(--pad) 0;
   width: 100%;
-  height: 250px;
+  height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
