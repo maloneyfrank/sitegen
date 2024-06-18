@@ -400,11 +400,11 @@ time {
 .featured-img {
   margin: var(--pad) 0;
   width: 100%;
-  height: 200px;
+  height: 350px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  mix-blend-mode: multiply;
+  mix-blend-mode: multiply;    
 }
 
 .pagination {

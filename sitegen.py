@@ -8,6 +8,7 @@ import logging
 
 import tomllib
 
+
 dt = datetime.datetime.now()
 
 # TODO: expand to be compatible with more types.
@@ -42,4 +43,4 @@ def parse_front_matter(file_content:str, format='toml') -> (str, str):
             
     
 def replace_placeholders(content: str, content_format:str = '.md'):
-    
+    pass
