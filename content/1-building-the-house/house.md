@@ -2,7 +2,7 @@
 date = 'June 2024'
 draft = false
 title = 'Building the House'
-summary = 'I have been building a house on 12 acres of raw land in rural southern New Hampshire'
+summary = 'Triumphs and missteps in building a house on 12 acres of raw land in rural southern New Hampshire. More missteps than could be reasonably documented.'
 weight = 10
 featured_img = 'assets/dithers/house_dithered.png'
 category = 'physical-things'

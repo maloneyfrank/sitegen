@@ -98,10 +98,10 @@ def main():
         article_front_matter, article_content = parse_front_matter(read_file(os.path.join(root,md_file)))
 
         # for now the about becomes the cover, switch to option for date-based.
-        if ('about' not in root):            
+        if ('about' not in root and '7' not in root):            
             home_page_entries += replace_placeholders(article_list_layout, **article_front_matter)
         else:
-            cover_content = replace_placeholders(cover_layout, **article_front_matter)
+            cover_content += replace_placeholders(cover_layout, **article_front_matter)
 
     home_page_content = replace_placeholders(master_layout, layout_content= cover_content+ home_page_entries)
     write_file(index_route, home_page_content)

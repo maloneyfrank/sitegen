@@ -2,7 +2,7 @@
 date = 'June 2024'
 draft = false
 title = 'Experiments in Permaculture'
-summary = 'I have been studying permaculture for the past 5 years and implementing new systems on my land each season.'
+summary = 'Lessons from my study of permaculture for the past 5 years and implementing new systems on my land each season.'
 weight = 10
 featured_img = 'assets/dithers/garden_dithered.png'
 category = 'physical-things'

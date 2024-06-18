@@ -22,9 +22,9 @@
   --color-sky: #BFD7EA;
   --color-sub: rgb(130 130 130);
   --color-bg: #DEF2C8;
-  --color-physical: #3F84E5;
-  --color-digital: #FF8C42;
-  --color-favorite: #F7B801;
+  --color-physical: #0074B5;
+  --color-digital: #E69A5A;
+  --color-favorite: #679F36;
   --pad-small: 0.25rem;
   --pad: 0.5rem;
   --pad-large: 1rem;
@@ -275,7 +275,7 @@ nav .rss {
   stroke: var(--color-sub);
 }
 
-#lang-menu {
+#contactme {
   width: 26px;
   height: 25px;
   cursor: pointer;
@@ -381,7 +381,8 @@ time {
 }
 
 .cover {
-  grid-column: 1/-1;
+  grid-column: span 2; /* Changed from grid-column: 1/-1; to span 2 columns */
+  /* grid-row: span 2; */
 }
 .cover a {
   display: grid;
@@ -389,9 +390,7 @@ time {
   gap: var(--pad-large);
   border-bottom: none;
 }
-.cover a .image {
-  grid-column: 2/-1;
-}
+
 @media only screen and (max-width: 980px) {
   .cover a .text,
   .cover a .image {
@@ -414,11 +413,16 @@ time {
 .featured-img {
   margin: var(--pad) 0;
   width: 100%;
-  height: 200px;
+  height: 250px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  mix-blend-mode: multiply;    
+  mix-blend-mode: multiply;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;          /* Firefox */
+  image-rendering: -o-crisp-edges;            /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+  -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */
 }
 
 .pagination {
@@ -1158,5 +1162,15 @@ Global Responsive Styles
   width: 2rem; /* Set the desired width */
   aspect-ratio: 1; /* Ensures the icon maintains a square aspect ratio */
   background: url('../static/favicon.svg') no-repeat center center;
+  background-size: contain; /* Ensures the SVG scales correctly */
+}
+
+/* # Custom classes */
+.handwave {
+  display: inline-block;
+  margin-top: 0.2rem;
+  width: 1rem; /* Set the desired width */
+  aspect-ratio: 1; /* Ensures the icon maintains a square aspect ratio */
+  background: url('../static/handwave.svg') no-repeat center center;
   background-size: contain; /* Ensures the SVG scales correctly */
 }

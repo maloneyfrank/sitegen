@@ -1,14 +1,15 @@
 <div class="cover {{category}}">
-    <a href="{{ link }}">
-        <div class="text">
-            <h2 class="entry-title">{{ title }}</h2>
-            <p class="index-summary">
-                {{ summary }}
-            </p>
-            <time class="published"> {{ date }}</time>
-        </div>
-        <div class="image">
-            <div class="featured-img" style="background-image: url('{{ featured_img }}');"></div>
-        </div>
+    <a href="{{ link }}"><div class="text">
+        <h2 class="entry-title">{{ title }}</h2>
+        <p class="index-summary">
+            {{ summary }}
+        </p>
+        <time class="published"> {{ date }}</time>
+    </div>
+    
+    <div class="image">
+        <div class="featured-img" style="background-image: url('{{ featured_img }}');"></div>
+    </div>
+    
     </a>
 </div>

@@ -28,30 +28,32 @@ class Ditherer:
     
     palette_dict = {
         'physical-things': hitherdither.palette.Palette([
-            (51, 88, 229),
-            (15, 57, 178),
-            (84, 122, 235),
-            (189, 202, 246),
-            (215, 219, 250),
-            (243, 244, 250)
+            (211, 233, 247),  # Very light blue: #D3E9F7
+            (163, 208, 240),  # Light blue: #A3D0F0
+            (115, 184, 232),  # Medium light blue: #73B8E8
+            (66, 159, 225),   # Medium blue: #429FE1
+            (17, 118, 217),   # Dark blue: #1176D9
+            (0, 87, 164)      # Very dark blue: #0057A4
 
         ]),
         'digital-things': hitherdither.palette.Palette([
-            (255, 111, 66),
-            (255, 74, 29),
-            (255, 128, 81),
-            (255, 183, 152),
-            (255, 203, 184),
-            (255, 229, 218)
+            (249, 220, 195),  # Very light orange: #F9DCC3
+            (243, 195, 155),  # Light orange: #F3C39B
+            (237, 170, 115),  # Medium light orange: #EDAA73
+            (230, 145, 75),   # Medium orange: #E6914B
+            (224, 120, 35),   # Dark orange: #E07823
+            (169, 91, 26)     # Very dark orange: #A95B1A
+
         ]),
 
-        # https://mycolor.space/?hex=%23F7B801
+        # https://mycolor.space/
         'favorite-things': hitherdither.palette.Palette([
-            (247, 184, 1),   # #F7B801
-            (198, 142, 0),   # #C68E00
-            (151, 103, 0),   # #976700
-            (108, 66, 0),    # #6C4200
-            (73, 30, 0)      # #491E00
+            (223, 242, 191),  # Very light green: #DFF2BF
+            (169, 207, 122),  # Light green: #A9CF7A
+            (103, 159, 54),   # Olive green: #679F36
+            (0, 111, 115),    # Dark teal: #006F73
+            (35, 54, 70),     # Very dark blue-gray: #233646
+            (16, 24, 32)      # Even darker blue-black: #101820
         ]),
         
         'grayscale': hitherdither.palette.Palette([(25,25,25), (75,75,75),(125,125,125),(175,175,175),(225,225,225),(250,250,250)])
@@ -72,7 +74,7 @@ class Ditherer:
         """ saves a dithered and colorized version of image to output path"""
         try:
             img= Image.open(source).convert('RGB')
-            img.thumbnail((800,800), Image.LANCZOS)
+            img.thumbnail((500,500), Image.LANCZOS)
             threshold = [96, 96, 96]
             dithered = hitherdither.ordered.bayer.bayer_dithering(img, Ditherer.palette_dict[category], threshold, order=8) 
 
