@@ -9,55 +9,12 @@ import logging
 import tomllib
 from util.dither import Ditherer
 
+from util.parsing import *
+
 
 dt = datetime.datetime.now()
 logging.basicConfig(level=logging.DEBUG)
 
-# TODO: expand to be compatible with more types.
-def read_file(filename: str) -> str:
-    """ reads file to string """
-    with open(filename, 'r') as f:
-        return f.read()
-
-    
-def write_file(filename: str, val: str) -> None:
-    """ write content to file """
-    basedir = os.path.dirname(filename)
-    if not os.path.isdir(basedir):
-        os.makedirs(basedir)
-
-    with open(filename, 'w') as f:
-        f.write(val)
-
-# TODO add JSON.
-def parse_front_matter(file_content:str, fmformat:str='.toml',content_format='.md') -> (str, str):
-    """ reads file contents and splits out header-level data from content """
-    if fmformat == '.toml':
-        pattern = r'\+\+\+\s*\n(.*?)\n\+\+\+\n(.*)'
-        try:
-            match = re.search(pattern, file_content, re.DOTALL)
-            return tomllib.loads(match.group(1)), match.group(2)
-        except AttributeError as err:
-            print(f'Something went wrong parsing front_matter: {err}')
-
-            
-def parse_markdown_content(content:str) -> str:
-    pass
-
-
-def replace_placeholders(text, **replacements):
-    # Regular expression pattern to match {{ tag_name }} with optional spaces
-    pattern = re.compile(r'\{\{\s*(\w+)\s*\}\}')
-
-    # function to replace matched patterns
-    def replace_match(match):
-        tag_name = match.group(1)
-        return replacements.get(tag_name, f'{{{{ {tag_name} }}}}')
-
-    # replace using the pattern and replacement function
-    result = re.sub(pattern, replace_match, text)
-    return result
-        
 
 def main():
     # create a new directory for the site 
@@ -66,20 +23,25 @@ def main():
     shutil.copytree('static', '_site')
     os.mkdir('_site/assets')
 
-    # generate the home_page 
+    # read layout files
     master_layout = read_file('layout/master.html')
     article_list_layout = read_file('layout/article_list.html')
+    article_list_item_layout = read_file('layout/article_list_item.html')
+    article_layout = read_file('layout/article.html')
     cover_layout = read_file('layout/cover.html')
+
+    # set basic params for generation
     content_dir = 'content'
     index_route = '_site/index.html'
     home_page_entries = ''
     cover_content = ''
 
+    # dither all images for use in site
     d = Ditherer(content_dir, '_site/assets')
     d.walk_through_dither()
     
     # TODO remove any potential redundant file entries.
-    """ walk through directories recursively and apply dithering."""
+    """ walk through directories recursively and generate content"""
     for root, dirs, files in os.walk(os.path.relpath(content_dir), topdown=True):
         dirs.sort()
         logging.info(f'Beginning process for {root}')
@@ -99,11 +61,17 @@ def main():
 
         # for now the about becomes the cover, switch to option for date-based.
         if ('about' not in root and '7' not in root):            
-            home_page_entries += replace_placeholders(article_list_layout, **article_front_matter)
+            home_page_entries += replace_placeholders(article_list_item_layout, **article_front_matter)
         else:
             cover_content += replace_placeholders(cover_layout, **article_front_matter)
 
-    home_page_content = replace_placeholders(master_layout, layout_content= cover_content+ home_page_entries)
+    
+        article_content = replace_placeholders(article_layout, layout_content = parse_markdown(article_content), **article_front_matter)
+        article_content = replace_placeholders(master_layout, layout_content=article_content)
+        write_file(article_file_output, article_content)
+    
+    article_list = replace_placeholders(article_list_layout, layout_content= cover_content+ home_page_entries)
+    home_page_content = replace_placeholders(master_layout, layout_content= article_list)
     write_file(index_route, home_page_content)
     
 

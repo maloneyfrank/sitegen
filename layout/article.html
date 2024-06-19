@@ -1,0 +1,26 @@
+<main class="article high-tech-problems">
+    <article>
+        <section class="article" id="content">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    {{ title}}
+                </h1>
+                <p class="summary">
+                    {{ article_summary }}
+		</p>
+                <div class="metadata">
+                    <div>
+                        <time class="published">{{ date }}</time>
+                    </div>
+                    <div class="authors">
+                        <span class="byline">Written by</span>
+                        <span class="author">
+                            <a href="#">{{ author }}</a></span>
+                    </div>
+                </div>
+            </header>
+            <div class="entry-content">
+                {{ layout_content }}
+            </div> 
+    </article>
+</main>

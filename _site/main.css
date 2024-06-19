@@ -1165,7 +1165,7 @@ Global Responsive Styles
   display: inline-block;
   width: 2rem; /* Set the desired width */
   aspect-ratio: 1; /* Ensures the icon maintains a square aspect ratio */
-  background: url('../static/favicon.svg') no-repeat center center;
+  background: url('favicon.svg') no-repeat center center;
   background-size: contain; /* Ensures the SVG scales correctly */
 }
 

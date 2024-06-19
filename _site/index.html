@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>frank|in</title>
-    <link rel="stylesheet" href="../static/main.css" />
-    <link rel="icon" href="../static/favicon.svg" type="image/svg+xml" />
+    <!-- TODO fix these routes so it's dynamic. -->
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   </head>
   <body>
       <header>
@@ -52,11 +55,11 @@
           </nav>
       
     </header>
-    
+
     <main class="home article-list">
-        
-        <section class="grid" id="home-listing">
-            <div class="cover {{ category }}">    
+    <section class="grid" id="home-listing">
+        <!-- Basic layout for home-page article listing. -->
+        <div class="cover {{ category }}">    
     <a href="{{ link }}">
         <div class="text">
             <h2 class="entry-title">Hi, my name is Franklin.</h2>
@@ -70,25 +73,6 @@
         </div>
     </a>
 </div>
-<!-- Basic layout for home-page article listing. -->
-<div class="article physical-things">
-    <a href="#">
-        <div class="featured-img" style="background-image: url('assets/dithers/house_dithered.png');"></div>
-        <h3 class="entry-title">Building the House</h3>
-        <p class="index-summary"> Triumphs and missteps in building a house on 12 acres of raw land in rural southern New Hampshire. More missteps than could be reasonably documented.</p>
-        <time class="published">June 2024</time>
-    </a>
-</div>
-<!-- Basic layout for home-page article listing. -->
-<div class="article digital-things">
-    <a href="#">
-        <div class="featured-img" style="background-image: url('assets/dithers/agroforestry_dithered.png');"></div>
-        <h3 class="entry-title">Pretty Agroforestree Database.</h3>
-        <p class="index-summary"> A re-design of the Agroforestree Database to be more streamlined and bring all information together. Uses scraping and the same custom site generator that built this site to deliver a low-tech, easy to read version of the database!</p>
-        <time class="published">June 2024</time>
-    </a>
-</div>
-<!-- Basic layout for home-page article listing. -->
 <div class="article physical-things">
     <a href="#">
         <div class="featured-img" style="background-image: url('assets/dithers/garden_dithered.png');"></div>
@@ -97,7 +81,6 @@
         <time class="published">June 2024</time>
     </a>
 </div>
-<!-- Basic layout for home-page article listing. -->
 <div class="article favorite-things">
     <a href="#">
         <div class="featured-img" style="background-image: url('assets/dithers/deem_cover_dithered.png');"></div>
@@ -106,16 +89,6 @@
         <time class="published">June 2024</time>
     </a>
 </div>
-<!-- Basic layout for home-page article listing. -->
-<div class="article digital-things">
-    <a href="#">
-        <div class="featured-img" style="background-image: url('assets/dithers/book_dithered.png');"></div>
-        <h3 class="entry-title">Low-Tech Site Generator</h3>
-        <p class="index-summary"> You're looking at the output! A static site generator built in Python that builds a simple static website modeled after the decisions and theming of Low Tech Magazine.</p>
-        <time class="published">June 2024</time>
-    </a>
-</div>
-<!-- Basic layout for home-page article listing. -->
 <div class="article physical-things">
     <a href="#">
         <div class="featured-img" style="background-image: url('assets/dithers/garden_dithered.png');"></div>
@@ -124,10 +97,34 @@
         <time class="published">June 2024</time>
     </a>
 </div>
+<div class="article digital-things">
+    <a href="#">
+        <div class="featured-img" style="background-image: url('assets/dithers/agroforestry_dithered.png');"></div>
+        <h3 class="entry-title">Pretty Agroforestree Database.</h3>
+        <p class="index-summary"> A re-design of the Agroforestree Database to be more streamlined and bring all information together. Uses scraping and the same custom site generator that built this site to deliver a low-tech, easy to read version of the database!</p>
+        <time class="published">June 2024</time>
+    </a>
+</div>
+<div class="article physical-things">
+    <a href="#">
+        <div class="featured-img" style="background-image: url('assets/dithers/house_dithered.png');"></div>
+        <h3 class="entry-title">Building the House</h3>
+        <p class="index-summary"> Triumphs and missteps in building a house on 12 acres of raw land in rural southern New Hampshire. More missteps than could be reasonably documented.</p>
+        <time class="published">June 2024</time>
+    </a>
+</div>
+<div class="article digital-things">
+    <a href="#">
+        <div class="featured-img" style="background-image: url('assets/dithers/book_dithered.png');"></div>
+        <h3 class="entry-title">Low-Tech Site Generator</h3>
+        <p class="index-summary"> You're looking at the output! A static site generator built in Python that builds a simple static website modeled after the decisions and theming of Low Tech Magazine.</p>
+        <time class="published">June 2024</time>
+    </a>
+</div>
 
-        </section>
-        
-    </main>
+    </section>
+</main>
+
     
     <footer>
 
@@ -137,8 +134,11 @@
     </footer>
 
 
-    
-    <script type="text/javascript" src="../static/main.js"></script>
+
+    <!--  Update route so more dynamic.  -->
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="../main.js"></script>
+
   </body>
 </html>
 

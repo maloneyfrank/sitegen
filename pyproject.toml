@@ -10,6 +10,7 @@ python = "^3.11"
 dithering = "^0.1.27"
 pillow = "^10.3.0"
 hitherdither = {git = "https://github.com/hbldh/hitherdither.git"}
+markdown = "^3.6"
 
 
 [build-system]

@@ -56,7 +56,35 @@
       
     </header>
 
-    {{ layout_content }}
+    <main class="article high-tech-problems">
+    <article>
+        <section class="article" id="content">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    Building the House
+                </h1>
+                <p class="summary">
+                    {{ article_summary }}
+		</p>
+                <div class="metadata">
+                    <div>
+                        <time class="published">June 2024</time>
+                    </div>
+                    <div class="authors">
+                        <span class="byline">Written by</span>
+                        <span class="author">
+                            <a href="#">{{ author }}</a></span>
+                    </div>
+                </div>
+            </header>
+            <div class="entry-content">
+                <p>This is an example of something.</p>
+<h1>Testing this would render as a header?</h1>
+<p>Good stuff.</p>
+            </div> 
+    </article>
+</main>
+
     
     <footer>
 

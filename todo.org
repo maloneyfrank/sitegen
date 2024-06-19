@@ -1,0 +1,27 @@
+* Site generator issues to complete
+
+**** TODO update pathing to static resources when moving files.
+
+**** TODO add natural sort in for the article ordering.
+
+**** TODO create article pages 
+
+**** TODO create category pages -
+
+should just be the same layout as home but selectively grabbing articles that are in categories.
+
+**** TODO article linking
+
+**** TODO util for identifying which css is in use and only serve that 
+
+**** TODO priveleged keyword and syntax documentation.
+
+so far:
+
+{{ }} -> variables to be substituted
+
+{{ layout_content }} reserved for nesting layout items.
+
+- need a figure caption shortcut. 
+
+- {{ img_html }} for wrapping an image in figure 
