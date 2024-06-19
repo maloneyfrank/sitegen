@@ -1,10 +1,10 @@
 +++
 date = 'June 2024'
 draft = false
-title = 'Pretty Agroforestree Database.'
-summary = 'A re-design of the Agroforestree Database to be more streamlined and bring all information together. Uses python scraping and custom site generator that built this site!'
+title = 'Low-Tech Site Generator'
+summary = "You're looking at the output! A static site generator built in Python that builds a simple static website modeled after the decisions and theming of Low Tech Magazine."
 weight = 10
-featured_img = 'assets/dithers/agroforestry_dithered.png'
+featured_img = 'assets/dithers/book_dithered.png'
 category = 'digital-things'
 [params]
   author = 'Franklin Maloney'
