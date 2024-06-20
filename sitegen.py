@@ -25,6 +25,12 @@ def main():
 
     # read layout files
     master_layout = read_file('layout/master.html')
+
+    file_path_conversions = {
+        '../static/*', '*',
+    }
+
+    
     article_list_layout = read_file('layout/article_list.html')
     article_list_item_layout = read_file('layout/article_list_item.html')
     article_layout = read_file('layout/article.html')
