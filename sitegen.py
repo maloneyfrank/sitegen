@@ -19,6 +19,9 @@ class Layout(NamedTuple):
     Useful abstraction for later functionality that will be added to configuration options.
     i.e. applying options to layout, more privileged keywords, etc.
     also just clear to type layout_name.fill()
+
+    TODO: add recursive building parent/child relationships to avoid multiple calls to fill() -
+    just write_layout once from the bottom layout
     """
     file_path: str
     root_dir: str = '_site/' 
@@ -59,6 +62,12 @@ def main():
     """ These two should be replaced with a new method."""
     home_page_entries = ''
     cover_content = ''
+
+    categorical_entries = {
+        'physical-things': '',
+        'digital-things': '',
+        'favorite-things': ''
+    }
 
     # Home Page Layouts:
     master_layout = Layout('layout/master.html')
@@ -106,19 +115,28 @@ def main():
         i.e. (about, most_recent_article, keyword) options to determine featured article.
         """
         
-        if ('about' not in root):            
-            home_page_entries += article_list_item_layout.fill(**article_front_matter)
+        if ('about' not in root):
+            filled_list_layout = article_list_item_layout.fill(**article_front_matter)
+            home_page_entries += filled_list_layout
+            if ('category' in article_front_matter.keys()):
+                categorical_entries[article_front_matter['category']] += filled_list_layout
         else:
             article_path  =  'about.html'
             article_front_matter['article_link'] = article_path
             cover_content += cover_layout.fill(**article_front_matter)
 
-    
         article_content = article_layout.fill(**article_front_matter, layout_content=parse_markdown(article_content))
         master_layout.write_layout(article_path, article_content)
-    
+
+
+    """
+    Write the main page and categorical list pages.
+    """
     article_list = article_list_layout.fill(layout_content=cover_content + home_page_entries)
     master_layout.write_layout('index.html', article_list)
-    
+
+    for category in categorical_entries.keys():
+        article_list = article_list_layout.fill(layout_content=categorical_entries[category])
+        master_layout.write_layout(category + '.html', article_list)
 
 main()
