@@ -1,27 +1,26 @@
 * Site generator issues to complete
 
-**** DOING update pathing to static resources when moving files.
-
-
-**** TODO add natural sort in for the article ordering.
+**** DONE update pathing to static resources when moving files.
+CLOSED: [2024-06-21 Fri 13:43]
 
 
 **** DONE create article pages 
 CLOSED: [2024-06-19 Wed 19:38]
 
 
+**** DONE linking between article and home
+CLOSED: [2024-06-21 Fri 13:42]
+
+**** TODO add natural sort in for the article ordering.
+
 **** TODO create category pages -
 
 should just be the same layout as home but selectively grabbing articles that are in categories.
 
 
-**** DOING linking between article and home
-
 **** TODO add checks for missing front matter that is required for layout.
 
-
 **** TODO util for identifying which css is in use and only serve that 
-
 
 **** TODO priveleged keyword and syntax documentation.
 

@@ -77,7 +77,7 @@ def main():
     # TODO remove any potential redundant file entries.
     """ walk through directories recursively and generate content"""
     for root, dirs, files in os.walk(os.path.relpath(content_dir), topdown=True):
-        dirs.sort()
+        dirs.sort(key=natural_sort_key, reverse=True)
         logging.info(f'Beginning process for {root}')
 
         """

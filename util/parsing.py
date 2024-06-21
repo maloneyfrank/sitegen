@@ -78,3 +78,8 @@ def replace_file_paths(html: str, replacements: dict) -> str:
 
     result = re.sub(pattern, replace_match, html)
     return result
+
+
+def natural_sort_key(s, _nsre=re.compile('([0-9]+)')):
+    return [int(text) if text.isdigit() else text.lower()
+            for text in _nsre.split(s)]
