@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frank|in</title>
+    <!-- set base to _site folder to allow relative pathing from root -->
+    <base href="file:///home/fmaloney/Desktop/sitegen/_site/">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <!-- <link rel="stylesheet" href="../main.css" />
+         <link rel="icon" href="../favicon.svg" type="image/svg+xml" /> -->
+
+  </head>
+  <body>
+      <header>
+          <a href = 'index.html''>
+          <!-- header with tree symbol -->
+              <h1 class = "header-with-icon">
+                  frank|in <i class ="tree-icon"></i> ma|oney
+              </h1>
+          </a>
+          Nice guy, enthusiast, occassional builder of things. 
+          <nav id="menu">
+              <div id="menu-s">
+                  <div id="contactme">
+                      <i class ="handwave"> </i>
+                  </div>
+                  <span id="m-btn">Menu</span>
+              </div>
+
+              <!-- TODO: generate dynamically from configured categories -->
+              <ul id="menu-list" class="">
+                  <li class="">
+                      <a data-nav="about" href="about.html">
+                          <span>About</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a data-nav="physical-things" href="#">
+                          <span>Physical Things</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a data-nav="digital-things" href="#">
+                          <span>Digital Things</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a data-nav="favorite-things" href="#">
+                          <span>Favorite Things</span>
+                      </a>
+                  </li>
+                  <li class="rss">
+                      <a href="/feeds" rel="alternate" target="_blank" type="application/atom+xml"><svg class="icon" viewBox="0 0 80 80"><title>RSS Feed</title><circle cx="19.91" cy="58.23" r="6.86"></circle><path d="M67.89,65.72H55.7A41.86,41.86,0,0,0,13.89,23.91V11.73A54.06,54.06,0,0,1,67.89,65.72Z"></path><path d="M48.93,65.72H36.75A22.88,22.88,0,0,0,13.89,42.87V30.68A35.08,35.08,0,0,1,48.93,65.72Z"></path></svg></a>
+                  </li>
+              </ul>
+          </nav>
+      
+    </header>
+
+    <main class="article high-tech-problems">
+    <article>
+        <section class="article" id="content">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    Low-Tech Site Generator
+                </h1>
+                <p class="summary">
+                    Inspired by Low Tech Magazine, I built a static site generator. Want proof? You're looking at it.
+		</p>
+                <div class="metadata">
+                    <div>
+                        <time class="published">June 2024</time>
+                    </div>
+                    <!--
+                         commenting out since personal website use for now.
+                         <div class="authors">
+                         <span class="byline">Written by</span>
+                         <span class="author">
+                         <a href="#">Franklin Maloney</a></span>
+                         </div>
+
+                    -->
+                </div>
+            </header>
+            <div class="entry-content">
+                <p><div class="article-img">
+    <figure>
+        <img alt="An image of low tech magazine's printed book." src="../assets/dithers/book_dithered.png" />
+        <div class="figure-controls">
+            <figcaption class="caption">
+                <span> {{ caption }}</span>
+            </figcaption>
+        </div>
+    </figure>
+</p>
+<h2>Building sites of the future</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et urna quam. Curabitur euismod, erat non faucibus luctus, purus risus molestie tellus, vel vestibulum nisl diam eu urna. Nulla facilisi. Nam cursus imperdiet est, pulvinar pulvinar enim pellentesque sed. Nullam tincidunt magna mi, ut pellentesque ipsum interdum ac. Nulla faucibus sem non tellus consequat, non facilisis mauris congue. Aliquam erat volutpat. Nulla sollicitudin condimentum mauris, vel condimentum lorem. Pellentesque elementum feugiat porttitor. Etiam id egestas nulla, eget semper dui. Nunc elit eros, laoreet ac justo eget, cursus vulputate tortor. Nunc erat orci, dictum id ullamcorper gravida, laoreet non nibh. Proin dapibus massa id odio tincidunt, in feugiat ante auctor. Sed vitae porttitor ex, sed fringilla ligula. Pellentesque in est ac felis elementum imperdiet.</p>
+<p>Quisque posuere ut lacus a suscipit. Nunc sed aliquet dui. Ut velit nulla, venenatis eget lacinia quis, aliquet quis mauris. In hac habitasse platea dictumst. Fusce pretium, orci a consequat tristique, justo risus fermentum nisl, quis sagittis mi mauris sit amet nibh. Ut non consequat ante. Nam tincidunt imperdiet fringilla. Aliquam eget eros eu tellus mattis posuere. Sed et erat aliquet, congue enim quis, mattis sapien. Phasellus id auctor nulla, id facilisis tellus.</p>
+<p>Duis sem urna, faucibus a nulla sit amet, ullamcorper pulvinar justo. Aliquam vitae scelerisque felis, eget blandit augue. Vestibulum suscipit nisi a dui interdum aliquam. Maecenas condimentum enim sit amet malesuada condimentum. Nullam eu ligula egestas, consectetur tellus volutpat, pharetra justo. Praesent in dolor eget ipsum fringilla vestibulum sed a magna. Curabitur eu est porttitor sapien fermentum ullamcorper commodo tempus orci. Praesent ultricies dolor sodales, mattis ipsum a, tincidunt ante. Fusce quis orci volutpat, imperdiet ex in, auctor purus.</p>
+<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc feugiat quam eu lacus scelerisque sagittis. Donec fermentum, lectus scelerisque auctor tempus, neque elit aliquet nibh, eu feugiat odio risus ut est. Fusce venenatis nibh est, sed interdum nisi imperdiet lacinia. Fusce sit amet sagittis purus. Nunc vel dignissim mi. In eget congue nunc. Mauris sit amet euismod urna.</p>
+<p>Praesent semper neque non magna pellentesque viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque laoreet tincidunt ante, nec scelerisque libero dapibus quis. Pellentesque tempus est ut diam molestie, quis auctor lacus finibus. Etiam ac nunc ac ante feugiat egestas dictum non dolor. Cras quis eros commodo, ullamcorper risus nec, porttitor nibh. Cras hendrerit sit amet diam quis aliquet. Proin dignissim nibh tellus. Sed nibh quam, auctor quis ornare quis, pharetra ut lacus. Nulla a orci id nibh molestie posuere. Pellentesque pharetra a lectus ut aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
+            </div> 
+    </article>
+</main>
+
+    
+    <footer>
+
+        <p>&copy; 2024 frank|in ma|oney. All rights reserved.</p>
+        <p> built with low-tech principles.</p>
+
+    </footer>
+
+
+
+    <!--  Update route so more dynamic.  -->
+    <script type="text/javascript" src="main.js"></script>
+    <!-- <script type="text/javascript" src="../main.js"></script> -->
+
+  </body>
+</html>
+

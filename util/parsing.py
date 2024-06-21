@@ -51,7 +51,7 @@ def replace_images_with_figures(html: str, img_layout_path:str) -> str:
     return result
 
 def replace_placeholders(text, **replacements):
-    """ takes page layout and substitutes in for variable expression."""
+    """ takes page layout and substitutes in for variable expression."""    
     pattern = re.compile(r'\{\{\s*(\w+)\s*\}\}')
     
     def replace_match(match):

@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>frank|in</title>
-    <!-- TODO fix these routes so it's dynamic. -->
+    <!-- set base to _site folder to allow relative pathing from root -->
+    <base href="file:///home/fmaloney/Desktop/sitegen/_site/">
     <link rel="stylesheet" href="main.css" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="../main.css" />
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <!-- <link rel="stylesheet" href="../main.css" />
+         <link rel="icon" href="../favicon.svg" type="image/svg+xml" /> -->
+
   </head>
   <body>
       <header>
-          <!-- Need to make this relative to if we are in articles or not.  -->
           <a href = 'index.html''>
           <!-- header with tree symbol -->
               <h1 class = "header-with-icon">
@@ -31,7 +32,7 @@
               <!-- TODO: generate dynamically from configured categories -->
               <ul id="menu-list" class="">
                   <li class="">
-                      <a data-nav="about" href="#">
+                      <a data-nav="about" href="about.html">
                           <span>About</span>
                       </a>
                   </li>
@@ -62,7 +63,7 @@
     <section class="grid" id="home-listing">
         <!-- Basic layout for home-page article listing. -->
         <div class="cover {{ category }}">    
-    <a href="{{ link }}">
+    <a href="about.html">
         <div class="text">
             <h2 class="entry-title">Hi, my name is Franklin.</h2>
             <p class="index-summary">
@@ -76,7 +77,7 @@
     </a>
 </div>
 <div class="article physical-things">
-    <a href="article/experiments_in_permaculture.html">
+    <a href="articles/experiments_in_permaculture.html">
         <div class="featured-img" style="background-image: url('assets/dithers/garden_dithered.png');"></div>
         <h3 class="entry-title">Experiments in Permaculture</h3>
         <p class="index-summary"> Lessons from my study of permaculture for the past 5 years and implementing new systems on my land each season.</p>
@@ -84,7 +85,7 @@
     </a>
 </div>
 <div class="article favorite-things">
-    <a href="article/all_these_crying_birds_by_deem_spencer.html">
+    <a href="articles/all_these_crying_birds_by_deem_spencer.html">
         <div class="featured-img" style="background-image: url('assets/dithers/deem_cover_dithered.png');"></div>
         <h3 class="entry-title">All These Crying Birds by Deem Spencer</h3>
         <p class="index-summary"> A new EP from the always-fantastic Deem Spencer.</p>
@@ -92,7 +93,7 @@
     </a>
 </div>
 <div class="article physical-things">
-    <a href="article/experiments_in_permaculture.html">
+    <a href="articles/experiments_in_permaculture.html">
         <div class="featured-img" style="background-image: url('assets/dithers/garden_dithered.png');"></div>
         <h3 class="entry-title">Experiments in Permaculture</h3>
         <p class="index-summary"> Lessons from my study of permaculture for the past 5 years and implementing new systems on my land each season.</p>
@@ -100,7 +101,7 @@
     </a>
 </div>
 <div class="article digital-things">
-    <a href="article/pretty_agroforestree_database..html">
+    <a href="articles/pretty_agroforestree_database..html">
         <div class="featured-img" style="background-image: url('assets/dithers/agroforestry_dithered.png');"></div>
         <h3 class="entry-title">Pretty Agroforestree Database.</h3>
         <p class="index-summary"> A re-design of the Agroforestree Database to be more streamlined and bring all information together. Uses scraping and the same custom site generator that built this site to deliver a low-tech, easy to read version of the database!</p>
@@ -108,7 +109,7 @@
     </a>
 </div>
 <div class="article physical-things">
-    <a href="article/building_the_house.html">
+    <a href="articles/building_the_house.html">
         <div class="featured-img" style="background-image: url('assets/dithers/house_dithered.png');"></div>
         <h3 class="entry-title">Building the House</h3>
         <p class="index-summary"> Triumphs and missteps in building a house on 12 acres of raw land in rural southern New Hampshire. More missteps than could be reasonably documented.</p>
@@ -116,7 +117,7 @@
     </a>
 </div>
 <div class="article digital-things">
-    <a href="article/low-tech_site_generator.html">
+    <a href="articles/low-tech_site_generator.html">
         <div class="featured-img" style="background-image: url('assets/dithers/book_dithered.png');"></div>
         <h3 class="entry-title">Low-Tech Site Generator</h3>
         <p class="index-summary"> You're looking at the output! A static site generator built in Python that builds a simple static website modeled after the decisions and theming of Low Tech Magazine.</p>
@@ -139,7 +140,7 @@
 
     <!--  Update route so more dynamic.  -->
     <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="../main.js"></script>
+    <!-- <script type="text/javascript" src="../main.js"></script> -->
 
   </body>
 </html>

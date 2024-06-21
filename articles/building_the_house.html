@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>frank|in</title>
-    <!-- TODO fix these routes so it's dynamic. -->
+    <!-- set base to _site folder to allow relative pathing from root -->
+    <base href="file:///home/fmaloney/Desktop/sitegen/_site/">
     <link rel="stylesheet" href="main.css" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="../main.css" />
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <!-- <link rel="stylesheet" href="../main.css" />
+         <link rel="icon" href="../favicon.svg" type="image/svg+xml" /> -->
+
   </head>
   <body>
       <header>
-          <!-- Need to make this relative to if we are in articles or not.  -->
           <a href = 'index.html''>
           <!-- header with tree symbol -->
               <h1 class = "header-with-icon">
@@ -103,7 +104,7 @@
 
     <!--  Update route so more dynamic.  -->
     <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="../main.js"></script>
+    <!-- <script type="text/javascript" src="../main.js"></script> -->
 
   </body>
 </html>

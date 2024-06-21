@@ -8,39 +8,67 @@ import logging
 
 import tomllib
 from util.dither import Ditherer
-
 from util.parsing import *
-
+from typing import NamedTuple
 
 dt = datetime.datetime.now()
 logging.basicConfig(level=logging.DEBUG)
 
+class Layout(NamedTuple):
+    """
+    Useful abstraction for later functionality that will be added to configuration options.
+    i.e. applying options to layout, more privileged keywords, etc.
+    also just clear to type layout_name.fill()
+    """
+    file_path: str
+    root_dir: str = '_site/' 
 
+
+    def __str__(self):
+        """
+        read and return layout contents as a string.
+        """
+        return read_file(self.file_path)
+
+
+    def fill(self, **args)->str:
+        """
+        fill the layout with specified content and return as string
+        """
+        return replace_placeholders(self.__str__(),  **args)
+        
+
+    def write_layout(self, output_path: str, layout_content: str, **args) -> None:
+        """ replace the privileged {{ layout_content }} block and write file."""
+        content = replace_placeholders(self.__str__(), layout_content=layout_content, **args)
+        write_file(self.root_dir + output_path, content)
+
+        
+    
 def main():
     # create a new directory for the site 
     if os.path.isdir('_site'):
         shutil.rmtree('_site')
     shutil.copytree('static', '_site')
     os.mkdir('_site/assets')
-
-    # read layout files
-    master_layout = read_file('layout/master.html')
-
-    file_path_conversions = {
-        '../static/*', '*',
-    }
-
     
-    article_list_layout = read_file('layout/article_list.html')
-    article_list_item_layout = read_file('layout/article_list_item.html')
-    article_layout = read_file('layout/article.html')
-    cover_layout = read_file('layout/cover.html')
-
     # set basic params for generation
     content_dir = 'content'
     index_route = '_site/index.html'
+
+    """ These two should be replaced with a new method."""
     home_page_entries = ''
     cover_content = ''
+
+    # Home Page Layouts:
+    master_layout = Layout('layout/master.html')
+    article_list_layout = Layout('layout/article_list.html')
+    article_list_item_layout = Layout('layout/article_list_item.html')
+    cover_layout = Layout('layout/cover.html')
+
+    #Article Page Layouts
+    article_layout = Layout('layout/article.html')
+
 
     # dither all images for use in site
     d = Ditherer(content_dir, '_site/assets')
@@ -63,32 +91,34 @@ def main():
 
         fname, ext = os.path.splitext(md_file)
 
-        # split the md into front matter and content
-        article_front_matter, article_content = parse_front_matter(read_file(os.path.join(root,md_file)))
-        # add the article link into the front-matter `article_link` = privileged keyword
+        """
+        Extract content and front matter from article and set the path for linking and file write. 
+        """
+        article_front_matter, article_content = parse_front_matter(read_file(os.path.join(root, md_file)))
+        article_path =  'articles/' + article_front_matter['title'].replace(' ', '_').lower() + '.html'
 
-        article_path = 'article/' + article_front_matter['title'].replace(' ', '_').lower() + '.html'
+        # article_link is defined in layout to specify link to current article
         article_front_matter['article_link'] = article_path
 
         """
         TODO: For now, defaulting to have the any article with about in the title to become the pinned/featured article.
         This makes sense in the context of a personal website, but should change this to be a configuration.
         i.e. (about, most_recent_article, keyword) options to determine featured article.
-        
         """
+        
         if ('about' not in root):            
-            home_page_entries += replace_placeholders(article_list_item_layout, **article_front_matter)
+            home_page_entries += article_list_item_layout.fill(**article_front_matter)
         else:
-            cover_content += replace_placeholders(cover_layout, **article_front_matter)
+            article_path  =  'about.html'
+            article_front_matter['article_link'] = article_path
+            cover_content += cover_layout.fill(**article_front_matter)
 
     
-        article_content = replace_placeholders(article_layout, layout_content = parse_markdown(article_content), **article_front_matter)
-        article_content = replace_placeholders(master_layout, layout_content=article_content)
-        write_file('_site/' + article_path, article_content)
+        article_content = article_layout.fill(**article_front_matter, layout_content=parse_markdown(article_content))
+        master_layout.write_layout(article_path, article_content)
     
-    article_list = replace_placeholders(article_list_layout, layout_content= cover_content+ home_page_entries)
-    home_page_content = replace_placeholders(master_layout, layout_content= article_list)
-    write_file(index_route, home_page_content)
+    article_list = article_list_layout.fill(layout_content=cover_content + home_page_entries)
+    master_layout.write_layout('index.html', article_list)
     
 
 main()
