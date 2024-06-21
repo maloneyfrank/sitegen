@@ -17,6 +17,8 @@ should just be the same layout as home but selectively grabbing articles that ar
 
 **** DOING linking between article and home
 
+**** TODO add checks for missing front matter that is required for layout.
+
 
 **** TODO util for identifying which css is in use and only serve that 
 

@@ -52,7 +52,9 @@ def main():
         dirs.sort()
         logging.info(f'Beginning process for {root}')
 
-        # assuming one .md file per directory
+        """
+        Assuming one article per folder for now.
+        """
         try:
             md_file = [f for f in files if f.endswith('.md')][0]
         except:
@@ -60,13 +62,21 @@ def main():
             continue
 
         fname, ext = os.path.splitext(md_file)
-        article_file_output = os.path.join('_site/articles', fname + '.html')
 
         # split the md into front matter and content
         article_front_matter, article_content = parse_front_matter(read_file(os.path.join(root,md_file)))
+        # add the article link into the front-matter `article_link` = privileged keyword
 
-        # for now the about becomes the cover, switch to option for date-based.
-        if ('about' not in root and '7' not in root):            
+        article_path = 'article/' + article_front_matter['title'].replace(' ', '_').lower() + '.html'
+        article_front_matter['article_link'] = article_path
+
+        """
+        TODO: For now, defaulting to have the any article with about in the title to become the pinned/featured article.
+        This makes sense in the context of a personal website, but should change this to be a configuration.
+        i.e. (about, most_recent_article, keyword) options to determine featured article.
+        
+        """
+        if ('about' not in root):            
             home_page_entries += replace_placeholders(article_list_item_layout, **article_front_matter)
         else:
             cover_content += replace_placeholders(cover_layout, **article_front_matter)
@@ -74,7 +84,7 @@ def main():
     
         article_content = replace_placeholders(article_layout, layout_content = parse_markdown(article_content), **article_front_matter)
         article_content = replace_placeholders(master_layout, layout_content=article_content)
-        write_file(article_file_output, article_content)
+        write_file('_site/' + article_path, article_content)
     
     article_list = replace_placeholders(article_list_layout, layout_content= cover_content+ home_page_entries)
     home_page_content = replace_placeholders(master_layout, layout_content= article_list)
