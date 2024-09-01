@@ -2,6 +2,9 @@ import re
 import tomllib
 import markdown
 import os
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 # TODO: expand to be compatible with more types.
@@ -36,18 +39,23 @@ def parse_markdown(md_content:str, wrap_images=True) -> str:
     if wrap_images: html = replace_images_with_figures(html, 'layout/article_image_wrap.html')
     return html
 
+
 def replace_images_with_figures(html: str, img_layout_path:str) -> str:
-    """ function to wrap images in figure for captioning, styling, etc."""
+    """
+    Function to wrap images in figure for captioning, styling, etc.
+    Assumes that line of text under the image is the caption.
+    Requires a caption right now.
+    """
     img_layout = read_file(img_layout_path)
-    img_pattern = re.compile(r'(<img\s[^>]*>)')
-    
+    img_pattern = re.compile(r'<p>(<img\s[^>]*>)\s*(.*?)</p>', re.DOTALL)
+
     def wrap_figure(match):
-        img_tag = match.group(1)
-        figure_content = replace_placeholders(img_layout, img_html=img_tag)
+        img_tag, caption = match.groups()  # Extract img tag and caption directly
+        caption = caption.strip()
+        figure_content = replace_placeholders(img_layout, img_html=img_tag, caption=caption)
         return figure_content
     
     result = img_pattern.sub(wrap_figure, html)
-    
     return result
 
 def replace_placeholders(text, **replacements):

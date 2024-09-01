@@ -11,6 +11,11 @@ CLOSED: [2024-06-19 Wed 19:38]
 **** DONE linking between article and home
 CLOSED: [2024-06-21 Fri 13:42]
 
+**** TODO add the change of the base href when building for production.
+
+- argument parse for prod or deploy
+- also automatically write to maloneyfrank.github.io
+
 **** TODO add natural sort in for the article ordering.
 
 **** TODO create category pages -

@@ -5,6 +5,7 @@ import datetime
 import shutil
 import json
 import logging
+import argparse
 
 import tomllib
 from util.dither import Ditherer
@@ -13,6 +14,15 @@ from typing import NamedTuple
 
 dt = datetime.datetime.now()
 logging.basicConfig(level=logging.DEBUG)
+
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--local', action=argparse.BooleanOptionalAction)
+args = parser.parse_args()
+
+if args.local:  
+    base_href = "file:////home/fmaloney/Desktop/sitegen/_site/"
+else:
+    base_href = "maloneyfrank.github.io/"
 
 class Layout(NamedTuple):
     """
@@ -33,6 +43,7 @@ class Layout(NamedTuple):
         """
         return read_file(self.file_path)
 
+    
 
     def fill(self, **args)->str:
         """
@@ -126,17 +137,17 @@ def main():
             cover_content += cover_layout.fill(**article_front_matter)
 
         article_content = article_layout.fill(**article_front_matter, layout_content=parse_markdown(article_content))
-        master_layout.write_layout(article_path, article_content)
+        master_layout.write_layout(article_path, article_content, base_href=base_href)
 
 
     """
     Write the main page and categorical list pages.
     """
     article_list = article_list_layout.fill(layout_content=cover_content + home_page_entries)
-    master_layout.write_layout('index.html', article_list)
+    master_layout.write_layout('index.html', article_list, base_href=base_href)
 
     for category in categorical_entries.keys():
         article_list = article_list_layout.fill(layout_content=categorical_entries[category])
-        master_layout.write_layout(category + '.html', article_list)
+        master_layout.write_layout(category + '.html', article_list, base_href=base_href)
 
 main()

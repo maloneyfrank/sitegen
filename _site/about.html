@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>frank|in</title>
+    
     <!-- set base to _site folder to allow relative pathing from root -->
-    <base href="file:///home/fmaloney/Desktop/sitegen/_site/">
+    <!-- TODO: Change on the export to prod - need to set that to just site root. -->
+    <base href="maloneyfrank.github.io/">
+    
     <link rel="stylesheet" href="main.css" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <!-- <link rel="stylesheet" href="../main.css" />
@@ -15,7 +18,6 @@
   <body>
       <header>
           <a href = 'index.html''>
-          <!-- header with tree symbol -->
               <h1 class = "header-with-icon">
                   frank|in <i class ="tree-icon"></i> ma|oney
               </h1>
@@ -51,6 +53,8 @@
                           <span>Favorite Things</span>
                       </a>
                   </li>
+
+                  <!-- TODO: add rss generation -->
                   <li class="rss">
                       <a href="/feeds" rel="alternate" target="_blank" type="application/atom+xml"><svg class="icon" viewBox="0 0 80 80"><title>RSS Feed</title><circle cx="19.91" cy="58.23" r="6.86"></circle><path d="M67.89,65.72H55.7A41.86,41.86,0,0,0,13.89,23.91V11.73A54.06,54.06,0,0,1,67.89,65.72Z"></path><path d="M48.93,65.72H36.75A22.88,22.88,0,0,0,13.89,42.87V30.68A35.08,35.08,0,0,1,48.93,65.72Z"></path></svg></a>
                   </li>
@@ -67,7 +71,7 @@
                     Hi, my name is Franklin.
                 </h1>
                 <p class="summary">
-                    {{ article_summary }}
+                    A personal website you say? I'm intrigued.
 		</p>
                 <div class="metadata">
                     <div>
@@ -85,9 +89,23 @@
                 </div>
             </header>
             <div class="entry-content">
-                <p>This is an example of something.</p>
-<h1>Testing this would render as a header?</h1>
-<p>Good stuff.</p>
+                <div class="article-img">
+    <figure>
+        <img alt="The author with his dogs in Killington, Vermont." src="assets/dithers/about_dithered.png" />
+        <div class="figure-controls">
+            <figcaption class="caption">
+                <span> The author with his dogs in Killington, Vermont.</span>
+            </figcaption>
+        </div>
+    </figure>
+</div>
+
+<h2>The Basics</h2>
+<p>I'm originally from West Orange, New Jersey but currently live in Southern New Hampshire where I have been building a small homestead on 12.5 acres of land. I work as a Product Manager @ <a href="https://www.andela.com">Andela</a> and outside of work have a passion for gardening, permaculture, running, hiking, and surfing. </p>
+<h2>A Bias for Building</h2>
+<p>As a teen, I got interested in building software and spent much of my time tinkering and self-teaching. I got interested in hackathons and attended 30+ during my middle school and high-school years - including some of the earliest iterations of MHacks and PennApps - getting to meet amazing technologists from Alexis Ohanian to Stephen Wolfram. In college, I stayed connected with the hackathon scene and was an organizer for HackPrinceton.</p>
+<p>At Princeton, I continued learning about technological concepts, but chose a path of study that was a bit more mathematics oriented and concentrated in Operations Research and Financial Engineering <a href="https://orfe.princeton.edu">(ORFE)</a>. </p>
+<p>During college, I also picked up a passion for gardening and began studying permaculture/regenerative agriculture. I received my Permaculture Design Certificate in 2020 and blended this newfound interest with my college studies through my senior <a href="https://dataspace.princeton.edu/handle/88435/dsp01zs25xc507">thesis.</a></p>
             </div> 
     </article>
 </main>
